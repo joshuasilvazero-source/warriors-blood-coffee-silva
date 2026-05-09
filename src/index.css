@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  background-color: #1a1410;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-heading {
+  font-family: "Cinzel", serif;
+}
+
+.font-serif {
+  font-family: "Playfair Display", serif;
+}
+
+.bg-brandBlack {
+  background-color: #1a1410;
+}
+
+.bg-brandDark {
+  background-color: #1a1410;
+}
+
+.bg-brandGold {
+  background-color: #c5a059;
+}
+
+.text-brandGold {
+  color: #c5a059;
+}
+
+.text-brandRed {
+  color: #b91c1c;
+}
+
+.border-brandGold {
+  border-color: #c5a059;
+}
+
+.gold-border {
+  border: 1px solid #c5a059;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(to bottom, #f1e4b8 0%, #c5a059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
