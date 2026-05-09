@@ -1,4 +1,4 @@
-import warriorsBloodLogo from "../assets/images/warriors-blood-logo.svg";
+import warriorsBloodLogo from "../assets/images/warrior-blood-logo-done.png";
 function NavBar() {
   return (
     <header className="bg-brandBlack border-b border-white/10 sticky top-0 z-50">
