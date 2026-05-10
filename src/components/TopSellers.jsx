@@ -62,7 +62,33 @@ function TopSellers() {
 
                             <p className="text-brandGold font-bold mb-4">{product.price}</p>
 
-                            <button className="w-full py-3 bg-brandGold hover:text-white text-black font-bold uppercase text-xs tracking-widest transition-all duration-300 cursor-pointer">
+                            <button
+                                className="
+        w-full
+        py-3
+        rounded-full
+        bg-linear-to-r
+        from-[#c5a059]
+        via-[#b89146]
+        to-[#8a6a32]
+        hover:from-[#d6b36d]
+        hover:via-[#c5a059]
+        hover:to-[#9a7740]
+        text-black
+        hover:text-white
+        font-bold
+        uppercase
+        text-xs
+        tracking-[0.2em]
+        transition-all
+        duration-500
+        cursor-pointer
+        hover:scale-105
+        hover:shadow-[0_0_25px_rgba(197,160,89,0.45)]
+        border
+        border-[#d4b06a]/40
+        backdrop-blur-sm
+    ">
                                 Add to Cart
                             </button>
                         </div>
@@ -73,44 +99,46 @@ function TopSellers() {
                     <a
                         href="#shop"
                         className="
-      group
-      relative
-      inline-flex
-      items-center
-      justify-center
-      overflow-hidden
-      px-12
-      py-4
-      font-bold
-      uppercase
-      tracking-[0.25em]
-      text-white
-      border
-      border-[#c5a059]
-      bg-linear-to-r
-      from-[#2a1810]
-      via-[#5c3a21]
-      to-[#c5a059]
-      transition-all
-      duration-500
-      hover:scale-105
-      hover:shadow-[0_0_30px_rgba(197,160,89,0.45)]
-      hover:-translate-y-1
+        group
+        relative
+        inline-flex
+        items-center
+        justify-center
+        overflow-hidden
+        px-14
+        py-4
+        rounded-full
+        font-bold
+        uppercase
+        tracking-[0.25em]
+        text-white
+        border
+        border-[#c5a059]/40
+        bg-linear-to-r
+        from-[#2a1810]
+        via-[#5c3a21]
+        to-[#c5a059]
+        transition-all
+        duration-500
+        hover:scale-105
+        hover:shadow-[0_0_35px_rgba(197,160,89,0.45)]
+        hover:-translate-y-1
+        backdrop-blur-sm
     ">
                         {/* Shine Overlay */}
                         <span
                             className="
-        absolute
-        inset-0
-        opacity-0
-        group-hover:opacity-100
-        transition-opacity
-        duration-500
-        bg-linear-to-r
-        from-transparent
-        via-white/10
-        to-transparent
-      "></span>
+            absolute
+            inset-0
+            opacity-0
+            group-hover:opacity-100
+            transition-opacity
+            duration-500
+            bg-linear-to-r
+            from-transparent
+            via-white/10
+            to-transparent
+        "></span>
 
                         {/* Text */}
                         <span className="relative z-10 flex items-center gap-3">
