@@ -46,7 +46,7 @@ export default function Footer() {
                     </div>
 
                     {/* Navigation Column */}
-                    <div className="flex flex-col items-center md:items-start">
+                    <div className="flex flex-col md:items-start">
                         <h4 className="font-heading text-brandGold tracking-widest uppercase mb-6 text-sm">
                             Navigation
                         </h4>
@@ -62,7 +62,7 @@ export default function Footer() {
                     </div>
 
                     {/* Contact Column */}
-                    <div className="flex flex-col items-center md:items-start text-sm">
+                    <div className="flex flex-col md:items-start text-sm">
                         <h4 className="font-heading text-brandGold tracking-widest uppercase mb-6">
                             Contact Us
                         </h4>
@@ -77,7 +77,9 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-gray-500">
-                    <p>&#169; 2026 Warriors Blood Coffee Co., LLC. All rights reserved.</p>
+                    <p className="text-center md:text-left">
+                        &#169; 2026 Warriors Blood Coffee Co., LLC. All rights reserved.
+                    </p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
                         <a className="hover:text-brandGold" href="#">
                             Privacy Policy
