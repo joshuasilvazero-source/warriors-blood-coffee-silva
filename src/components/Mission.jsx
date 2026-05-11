@@ -55,21 +55,31 @@ export default function Mission() {
                             <a
                                 href="#shop"
                                 className="
-        rounded-full
-        bg-brandGold
-        hover:bg-[#a8843f]
-        hover:text-white
-        text-black
-        font-bold
-        py-4
-        px-10
-        uppercase
-        tracking-widest
-        text-sm
-        transition-all
-        duration-300
-        hover:scale-105
-        hover:shadow-[0_0_25px_rgba(197,160,89,0.45)]
+        group
+            relative
+            inline-flex
+            items-center
+            justify-center
+            overflow-hidden
+            px-12
+            py-4
+            rounded-full
+            font-bold
+            uppercase
+            tracking-[0.25em]
+            text-black
+            bg-gradient-to-r
+            from-[#c5a059]
+            via-[#b89146]
+            to-[#8a6a32]
+            hover:text-white
+            transition-all
+            duration-500
+            hover:scale-105
+            hover:shadow-[0_0_35px_rgba(197,160,89,0.45)]
+            hover:-translate-y-1
+            border
+            border-[#d4b06a]/40
     ">
                                 Shop Coffee
                             </a>
@@ -79,25 +89,32 @@ export default function Mission() {
                                 href="#contact"
                                 className="
         group
-        relative
-        overflow-hidden
-        rounded-full
-        border
-        border-brandGold
-        text-white
-        font-bold
-        py-4
-        px-10
-        uppercase
-        tracking-widest
-        text-sm
-        transition-all
-        duration-500
-        hover:scale-105
-        hover:shadow-[0_0_25px_rgba(197,160,89,0.45)]
+            relative
+            inline-flex
+            items-center
+            justify-center
+            overflow-hidden
+            px-12
+            py-4
+            rounded-full
+            font-bold
+            uppercase
+            tracking-[0.25em]
+            text-white
+            border
+            border-[#c5a059]/40
+            bg-gradient-to-r
+            from-[#2a1810]
+            via-[#5c3a21]
+            to-[#c5a059]
+            transition-all
+            duration-500
+            hover:scale-105
+            hover:shadow-[0_0_35px_rgba(197,160,89,0.45)]
+            hover:-translate-y-1
     ">
                                 {/* Animated Gold Fill */}
-                                <span
+                                {/* <span
                                     className="
             absolute
             inset-0
@@ -107,7 +124,7 @@ export default function Mission() {
             group-hover:scale-x-100
             transition-transform
             duration-500
-        "></span>
+        "></span> */}
 
                                 {/* Text */}
                                 <span className="relative z-10 group-hover:text-black transition-colors duration-300">
