@@ -26,7 +26,7 @@ const products = [
     }
 ];
 
-function TopSellers() {
+function TopSellers({addToCart}) {
     return (
         <section className="relative py-24 bg-brandDark" id="shop">
             <div className="max-w-7xl mx-auto px-4">
@@ -63,6 +63,7 @@ function TopSellers() {
                             <p className="text-brandGold font-bold mb-4">{product.price}</p>
 
                             <button
+                                    onClick={() => addToCart(product)}
                                 className="
         w-full
         py-3
