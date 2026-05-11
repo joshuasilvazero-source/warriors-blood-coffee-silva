@@ -134,6 +134,7 @@ function Hero() {
                     </div>
                 </div>
             </div>
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-brandDark to-transparent z-10"></div>
         </section>
     );
 }

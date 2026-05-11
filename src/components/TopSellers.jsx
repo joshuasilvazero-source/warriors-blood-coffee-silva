@@ -28,7 +28,7 @@ const products = [
 
 function TopSellers() {
     return (
-        <section className="py-24 bg-brandDark" id="shop">
+        <section className="relative py-24 bg-brandDark" id="shop">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
                     <div className="flex items-center justify-center space-x-6 mb-4">
@@ -150,6 +150,7 @@ function TopSellers() {
                     </a>
                 </div>
             </div>
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-black to-transparent pointer-events-none"></div>
         </section>
     );
 }

@@ -4,6 +4,7 @@ import logoImg from "../assets/images/warrior-blood-logo-done.png";
 export default function Mission() {
     return (
         <section className="relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-32 bg-linear-to-b from-brandDark to-transparent z-20"></div>
             {/* Background */}
             <img
                 src={missionBg}
@@ -134,6 +135,7 @@ export default function Mission() {
                     </div>
                 </div>
             </div>
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-brandBlack to-transparent z-20"></div>
         </section>
     );
 }
