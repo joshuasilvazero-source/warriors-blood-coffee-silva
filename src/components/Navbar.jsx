@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import warriorsBloodLogo from "../assets/images/warrior-blood-logo-done.png";
 
@@ -158,11 +159,23 @@ function NavBar({ cartItems, removeFromCart }) {
                                         Shipping and taxes calculated at checkout.
                                     </p>
 
-                                    <button
-                                        disabled={cartItems.length === 0}
-                                        className="w-full rounded-full py-4 bg-brandGold text-black font-bold uppercase tracking-widest text-xs transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#a8843f] hover:text-white">
-                                        Checkout
-                                    </button>
+                                    {cartItems.length === 0 ? (
+                                        <button
+                                            disabled
+                                            className="w-full rounded-full py-4 bg-brandGold text-black font-bold uppercase tracking-widest text-xs opacity-40 cursor-not-allowed">
+                                            Checkout
+                                        </button>
+                                    ) : (
+                                        <Link
+                                            to="/checkout"
+                                            onClick={() => {
+                                                setCartOpen(false);
+                                                setMenuOpen(false);
+                                            }}
+                                            className="block text-center w-full rounded-full py-4 bg-brandGold text-black font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-[#a8843f] hover:text-white">
+                                            Checkout
+                                        </Link>
+                                    )}
 
                                     <a
                                         href="#shop"
@@ -282,9 +295,31 @@ function NavBar({ cartItems, removeFromCart }) {
                                             </span>
                                         </div>
 
-                                        <button className="w-full rounded-full py-3 bg-brandGold text-black font-bold uppercase tracking-widest text-xs">
+                                        <Link
+                                            to="/checkout"
+                                            onClick={() => {
+                                                setMenuOpen(false);
+                                                setCartOpen(false);
+                                            }}
+                                            className="
+    block
+    text-center
+    w-full
+    rounded-full
+    py-3
+    bg-brandGold
+    text-black
+    font-bold
+    uppercase
+    tracking-widest
+    text-xs
+    transition-all
+    duration-300
+    hover:bg-[#a8843f]
+    hover:text-white
+  ">
                                             Checkout
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             )}
