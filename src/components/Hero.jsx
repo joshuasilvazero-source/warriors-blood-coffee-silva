@@ -18,7 +18,7 @@ function Hero() {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-                <div className="max-w-3xl">
+                <div className="max-w-3xl text-center md:text-left mx-auto md:mx-0">
                     <h2 className="font-heading text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight">
                         Born in Service.
                         <br />
@@ -30,7 +30,7 @@ function Hero() {
                         fighting.
                     </p>
 
-                    <div className="flex flex-wrap gap-5">
+                    <div className="flex flex-wrap justify-center md:justify-start gap-5">
                         {/* Shop Coffee */}
                         <a
                             href="#shop"

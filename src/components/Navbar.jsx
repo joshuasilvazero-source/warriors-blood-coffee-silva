@@ -225,7 +225,7 @@ function Navbar({ cartItems, removeFromCart }) {
       {/* Mobile Dropdown */}
       {menuOpen && (
         <div className="md:hidden bg-brandBlack border-t border-white/10 px-4 py-6">
-          <nav className="flex flex-col space-y-5 uppercase text-sm tracking-widest font-semibold">
+          <nav className="flex flex-col items-center text-center space-y-5 uppercase text-sm tracking-widest font-semibold">
             <Link
               to="/"
               onClick={() => setMenuOpen(false)}
