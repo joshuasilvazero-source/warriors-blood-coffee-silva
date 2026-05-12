@@ -29,7 +29,7 @@ export default function Mission() {
                         justify-between
                     ">
                     {/* Left Content */}
-                    <div className="md:w-1/2 mb-12 md:mb-0">
+                    <div className="md:w-1/2 mb-12 md:mb-0 text-center md:text-left ">
                         <h2 className="font-heading text-4xl md:text-5xl mb-6 leading-tight">
                             Fuel your mission with{" "}
                             <span className="text-brandRed">Warriors Blood</span>
@@ -50,7 +50,7 @@ export default function Mission() {
                         </p>
 
                         {/* Buttons */}
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap justify-center md:justify-start gap-5">
                             {/* Shop Coffee */}
                             <a
                                 href="#shop"

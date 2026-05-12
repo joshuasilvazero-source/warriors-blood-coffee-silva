@@ -2,18 +2,18 @@ export default function Footer() {
   return (
     <footer className="bg-brandBlack pt-20 pb-10 border-t border-white/5" id="contact">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
           <div>
             <h4 className="font-heading text-2xl mb-6">
               Warriors <span className="text-brandRed">Blood</span> Coffee
             </h4>
 
-            <p className="text-white text-sm leading-relaxed max-w-xs mb-6">
+            <p className="text-white text-sm leading-relaxed max-w-xs mx-auto md:mx-0 mb-6">
               Premium coffee beans, roasted to order and shipped fresh from our
               roastery to your cup since 2018.
             </p>
 
-            <div className="flex items-center space-x-5">
+            <div className="flex items-center space-x-5 justify-center md:justify-start">
               <a
                 href="#"
                 className="group relative flex items-center justify-center w-12 h-12 rounded-full border border-[#c5a059]/30 bg-white/5 transition-all duration-500 hover:scale-110 hover:border-[#c5a059] hover:shadow-[0_0_25px_rgba(197,160,89,0.45)]"
