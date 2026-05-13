@@ -121,7 +121,7 @@ function ProductModal({ product, onClose, onAddToCart }) {
             <img
               src={product.image}
               alt={product.name}
-              className="relative z-10 w-full max-w-[240px] md:max-w-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+              className="relative z-10 w-full max-w-60 md:max-w-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
             />
           </div>
 
@@ -312,13 +312,16 @@ export default function Products({ addToCart }) {
                   onClick={() => setSelectedProduct(product)}
                   className="
                     w-full py-3 rounded-full
-                    border border-brandGold/40
-                    text-brandGold
+                    text-brandGold hover:text-white!
+                    border border-[#d4b06a]/40 hover:border-brandGold
                     hover:bg-brandGold/10
                     hover:border-brandGold
                     font-bold uppercase text-xs tracking-[0.2em]
-                    transition-all duration-300
+                    transition-all duration-500
                     cursor-pointer
+                    hover:scale-[1.02]
+                    hover:shadow-[0_0_25px_rgba(197,160,89,0.45)]
+                    backdrop-blur-sm
                   "
                 >
                   Description
