@@ -10,6 +10,7 @@ import Mission from "./components/Mission";
 import Footer from "./components/Footer";
 
 import Checkout from "./pages/Checkout";
+import Products from "./pages/Products";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -63,6 +64,12 @@ function App() {
               <Mission />
             </main>
           }
+        />
+
+        {/* Products Page */}
+        <Route
+          path="/products"
+          element={<Products addToCart={addToCart} />}
         />
 
         {/* Checkout Page */}

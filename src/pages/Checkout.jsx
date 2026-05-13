@@ -194,7 +194,7 @@ export default function Checkout({ cartItems, removeFromCart }) {
                   mt-8
                   rounded-full
                   py-4
-                  bg-gradient-to-r
+                  bg-linear-to-r
                   from-[#c5a059]
                   via-[#b89146]
                   to-[#8a6a32]
@@ -223,7 +223,7 @@ export default function Checkout({ cartItems, removeFromCart }) {
             </aside>
 
           </div>
-        )}
+        )} 
       </section>
     </main>
   );
