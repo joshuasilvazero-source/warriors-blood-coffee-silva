@@ -223,7 +223,7 @@ export default function Checkout({ cartItems, removeFromCart }) {
             </aside>
 
           </div>
-        )}
+        )} 
       </section>
     </main>
   );
