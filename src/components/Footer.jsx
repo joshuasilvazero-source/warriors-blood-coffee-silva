@@ -55,7 +55,7 @@ export default function Footer() {
 
             <ul className="space-y-4 text-sm font-semibold uppercase tracking-tighter">
               <li><a className="hover:text-brandGold transition-colors" href="#">Home</a></li>
-              <li><a className="hover:text-brandGold transition-colors" href="#shop">Shop</a></li>
+              <li><a className="hover:text-brandGold transition-colors" href="./products">Shop</a></li>
               <li><a className="hover:text-brandGold transition-colors" href="#about">About Us</a></li>
               <li><a className="hover:text-brandGold transition-colors" href="#contact">Contact Us</a></li>
             </ul>
