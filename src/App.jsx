@@ -62,6 +62,7 @@ function App() {
           path="/products"
           element={<Products addToCart={addToCart} />}
         />
+        
 
                 {/* Checkout Page */}
                 <Route
