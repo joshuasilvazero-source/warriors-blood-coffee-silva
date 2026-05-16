@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
+import About from "./pages/About";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -71,6 +72,8 @@ function App() {
           path="/products"
           element={<Products addToCart={addToCart} />}
         />
+        {/* About Page */}
+        <Route path="/about" element={<About />} />
 
         {/* Checkout Page */}
         <Route
