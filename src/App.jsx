@@ -57,12 +57,11 @@ function App() {
                     }
                 />
 
-        {/* Products Page */}
-        <Route
-          path="/products"
-          element={<Products addToCart={addToCart} />}
-        />
-        
+                {/* Products Page */}
+                <Route path="/products" element={<Products addToCart={addToCart} />} />
+
+                {/* About Page */}
+                <Route path="/about" element={<About />} />
 
                 {/* Checkout Page */}
                 <Route
