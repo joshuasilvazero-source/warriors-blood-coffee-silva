@@ -311,19 +311,14 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
                           <p className="text-brandGold text-sm font-bold mt-1">
                             {item.price}
                           </p>
-
-                          <p className="text-xs text-gray-400">
-                            Qty: {item.quantity}
-                          </p>
                         </div>
                       </div>
 
-                      <button
-                        onClick={() => removeFromCart(item.name)}
-                        className="w-8 h-8 rounded-full border border-white/10 text-gray-400 hover:text-brandRed hover:border-brandRed/40"
-                      >
-                        ×
-                      </button>
+                      <QuantityStepper
+                        quantity={item.quantity}
+                        onIncrement={() => addToCart(item)}
+                        onDecrement={() => removeFromCart(item.name)}
+                      />
                     </div>
                   ))}
 
