@@ -1,4 +1,6 @@
-export default function Checkout({ cartItems, removeFromCart }) {
+import QuantityStepper from "../components/QuantityStepper";
+
+export default function Checkout({ cartItems, addToCart, removeFromCart }) {
   const subtotal = cartItems.reduce((total, item) => {
     return total + Number(item.price.replace("$", "")) * item.quantity;
   }, 0);
@@ -109,21 +111,11 @@ export default function Checkout({ cartItems, removeFromCart }) {
 
                         {/* Quantity */}
                         <div className="flex justify-center">
-                          <div className="
-                            w-12
-                            h-12
-                            rounded-full
-                            border
-                            border-brandGold/20
-                            flex
-                            items-center
-                            justify-center
-                            text-sm
-                            font-bold
-                            text-brandGold
-                          ">
-                            {item.quantity}
-                          </div>
+                          <QuantityStepper
+                            quantity={item.quantity}
+                            onIncrement={() => addToCart(item)}
+                            onDecrement={() => removeFromCart(item.name)}
+                          />
                         </div>
 
                         {/* Total */}
