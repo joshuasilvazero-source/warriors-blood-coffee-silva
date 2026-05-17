@@ -210,12 +210,19 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white text-3xl"
-        >
-          {menuOpen ? "×" : "☰"}
-        </button>
+        <div className="relative md:hidden">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-white text-3xl"
+          >
+            {menuOpen ? "×" : "☰"}
+          </button>
+          {cartCount > 0 && !menuOpen && (
+            <span className="absolute -top-2 -right-2 bg-brandGold text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center pointer-events-none">
+              {cartCount}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Mobile Dropdown */}
