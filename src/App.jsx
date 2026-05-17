@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./index.css";
@@ -8,6 +8,7 @@ import Hero from "./components/Hero";
 import TopSellers from "./components/TopSellers";
 import Mission from "./components/Mission";
 import Footer from "./components/Footer";
+import CartToast from "./components/CartToast";
 
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
@@ -15,6 +16,13 @@ import About from "./pages/About";
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
+    const [cartToast, setCartToast] = useState(null);
+
+    useEffect(() => {
+        if (!cartToast) return;
+        const timer = setTimeout(() => setCartToast(null), 2500);
+        return () => clearTimeout(timer);
+    }, [cartToast]);
 
     function addToCart(product) {
         setCartItems((prevItems) => {
@@ -28,6 +36,7 @@ function App() {
 
             return [...prevItems, { ...product, quantity: 1 }];
         });
+        setCartToast(product.name);
     }
 
     function removeFromCart(productName) {
@@ -77,6 +86,7 @@ function App() {
             </Routes>
 
             <Footer />
+            <CartToast productName={cartToast} />
         </>
     );
 }
