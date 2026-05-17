@@ -42,7 +42,7 @@ function App() {
 
     return (
         <>
-            <Navbar cartItems={cartItems} removeFromCart={removeFromCart} />
+            <Navbar cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
 
             <Routes>
                 {/* Homepage */}
@@ -66,7 +66,7 @@ function App() {
                 {/* Checkout Page */}
                 <Route
                     path="/checkout"
-                    element={<Checkout cartItems={cartItems} removeFromCart={removeFromCart} />}
+                    element={<Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />}
                 />
             </Routes>
 
