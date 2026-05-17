@@ -17,14 +17,20 @@ import About from "./pages/About";
 function App() {
     const [cartItems, setCartItems] = useState([]);
     const [cartToast, setCartToast] = useState(null);
+    const [toastVisible, setToastVisible] = useState(false);
 
     useEffect(() => {
         if (!cartToast) return;
-        const timer = setTimeout(() => setCartToast(null), 2500);
-        return () => clearTimeout(timer);
+        setToastVisible(true);
+        const hideTimer = setTimeout(() => setToastVisible(false), 2200);
+        const clearTimer = setTimeout(() => setCartToast(null), 2500);
+        return () => {
+            clearTimeout(hideTimer);
+            clearTimeout(clearTimer);
+        };
     }, [cartToast]);
 
-    function addToCart(product) {
+    function addToCart(product, { silent = false } = {}) {
         setCartItems((prevItems) => {
             const existingItem = prevItems.find((item) => item.name === product.name);
 
@@ -36,7 +42,7 @@ function App() {
 
             return [...prevItems, { ...product, quantity: 1 }];
         });
-        setCartToast(product.name);
+        if (!silent) setCartToast(product.name);
     }
 
     function removeFromCart(productName) {
@@ -86,7 +92,7 @@ function App() {
             </Routes>
 
             <Footer />
-            <CartToast productName={cartToast} />
+            <CartToast productName={cartToast} visible={toastVisible} />
         </>
     );
 }

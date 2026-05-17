@@ -159,7 +159,7 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
 
                         <QuantityStepper
                           quantity={item.quantity}
-                          onIncrement={() => addToCart(item)}
+                          onIncrement={() => addToCart(item, { silent: true })}
                           onDecrement={() => removeFromCart(item.name)}
                         />
                       </div>
@@ -316,7 +316,7 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
 
                       <QuantityStepper
                         quantity={item.quantity}
-                        onIncrement={() => addToCart(item)}
+                        onIncrement={() => addToCart(item, { silent: true })}
                         onDecrement={() => removeFromCart(item.name)}
                       />
                     </div>

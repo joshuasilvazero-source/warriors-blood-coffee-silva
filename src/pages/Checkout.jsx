@@ -113,7 +113,7 @@ export default function Checkout({ cartItems, addToCart, removeFromCart, removeA
                         <div className="flex justify-center">
                           <QuantityStepper
                             quantity={item.quantity}
-                            onIncrement={() => addToCart(item)}
+                            onIncrement={() => addToCart(item, { silent: true })}
                             onDecrement={() => removeFromCart(item.name)}
                           />
                         </div>
