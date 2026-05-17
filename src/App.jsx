@@ -21,10 +21,11 @@ function App() {
 
     useEffect(() => {
         if (!cartToast) return;
-        setToastVisible(true);
+        const showTimer = setTimeout(() => setToastVisible(true), 0);
         const hideTimer = setTimeout(() => setToastVisible(false), 2200);
         const clearTimer = setTimeout(() => setCartToast(null), 2500);
         return () => {
+            clearTimeout(showTimer);
             clearTimeout(hideTimer);
             clearTimeout(clearTimer);
         };
