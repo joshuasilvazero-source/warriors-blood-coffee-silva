@@ -105,7 +105,7 @@ export default function About() {
             </section>
 
             {/* CTA Banner */}
-            <section className="relative w-full min-h-100 overflow-hidden mt-8">
+            <section className="relative w-full overflow-hidden mt-8">
                 <img
                     src={aboutCta}
                     alt="Warriors Blood CTA"
@@ -136,7 +136,7 @@ export default function About() {
 
                     {/* Center Image */}
                     <div className="shrink-0">
-                        <div className="w-48 h-48 rounded-full border-2 border-brandGold overflow-hidden shadow-[0_0_40px_rgba(197,160,89,0.3)] bg-[#0e0804]">
+                        <div className="w-48 h-48 rounded-full ">
                             <img
                                 src={warriorBloodLogo}
                                 alt="Warriors Blood Logo"
