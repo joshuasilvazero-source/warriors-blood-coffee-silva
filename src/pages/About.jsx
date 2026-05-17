@@ -3,7 +3,6 @@ import aboutHero from "../assets/images/about-hero.jpg";
 import aboutSplit from "../assets/images/about-split.jpg";
 import aboutBeans from "../assets/images/about-beans.jpg";
 import aboutCta from "../assets/images/about-cta.jpg";
-// import warriorBloodLogo from "../assets/images/warrior-blood-logo-done.png";
 
 export default function About() {
     return (
