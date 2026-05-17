@@ -168,7 +168,7 @@ export default function Checkout({ cartItems, removeFromCart }) {
                 </div>
 
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Shipping</span>
+                  <span className="text-gray-400">Shipping & Taxes</span>
 
                   <span className="text-gray-300">
                     Calculated at payment

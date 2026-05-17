@@ -9,7 +9,7 @@ const products = [
   {
     id: 1,
     name: "Tusk & Bone",
-    price: "$22.99",
+    price: "$15.00",
     image: tuskBoneImage,
     roast: "Dark Roast",
     roastIntensity: 5,
@@ -24,7 +24,7 @@ const products = [
   {
     id: 2,
     name: "Desert Rat",
-    price: "$22.99",
+    price: "$15.00",
     image: desertRatImage,
     roast: "Medium-Dark Roast",
     roastIntensity: 4,
@@ -39,7 +39,7 @@ const products = [
   {
     id: 3,
     name: "WBCC Dark Roast",
-    price: "$22.99",
+    price: "$15.00",
     image: warriorsCoffeeImage,
     roast: "Dark Roast",
     roastIntensity: 4,
@@ -54,7 +54,7 @@ const products = [
   {
     id: 4,
     name: "First Light",
-    price: "$22.99",
+    price: "$15.00",
     image: firstLightImage,
     roast: "Medium Roast",
     roastIntensity: 3,
