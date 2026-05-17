@@ -15,7 +15,7 @@ const products = [
         image: desertRatImage
     },
     {
-        name: "Warriors Coffee",
+        name: "WBCC Dark Roast",
         price: "$15.00",
         image: warriorsCoffeeImage
     },

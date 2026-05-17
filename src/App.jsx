@@ -16,20 +16,17 @@ import About from "./pages/About";
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
-    const [cartToast, setCartToast] = useState(null);
-    const [toastVisible, setToastVisible] = useState(false);
+    const [cartToast, setCartToast] = useState({ name: null, visible: false });
 
     useEffect(() => {
-        if (!cartToast) return;
-        const showTimer = setTimeout(() => setToastVisible(true), 0);
-        const hideTimer = setTimeout(() => setToastVisible(false), 2200);
-        const clearTimer = setTimeout(() => setCartToast(null), 2500);
+        if (!cartToast.name) return;
+        const hideTimer = setTimeout(() => setCartToast(prev => ({ ...prev, visible: false })), 2200);
+        const clearTimer = setTimeout(() => setCartToast({ name: null, visible: false }), 2500);
         return () => {
-            clearTimeout(showTimer);
             clearTimeout(hideTimer);
             clearTimeout(clearTimer);
         };
-    }, [cartToast]);
+    }, [cartToast.name]);
 
     function addToCart(product, { silent = false } = {}) {
         setCartItems((prevItems) => {
@@ -43,7 +40,7 @@ function App() {
 
             return [...prevItems, { ...product, quantity: 1 }];
         });
-        if (!silent) setCartToast(product.name);
+        if (!silent) setCartToast({ name: product.name, visible: true });
     }
 
     function removeFromCart(productName) {
@@ -93,7 +90,7 @@ function App() {
             </Routes>
 
             <Footer />
-            <CartToast productName={cartToast} visible={toastVisible} />
+            <CartToast productName={cartToast.name} visible={cartToast.visible} />
         </>
     );
 }

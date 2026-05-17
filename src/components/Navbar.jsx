@@ -83,9 +83,11 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
                 />
               </svg>
 
-              <span className="absolute -top-2 -right-2 bg-brandGold text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
-                {cartCount}
-              </span>
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-brandGold text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </button>
 
             {/* Desktop Cart Dropdown */}
