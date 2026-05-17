@@ -38,13 +38,14 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex items-center space-x-8 uppercase text-xs tracking-widest font-semibold">
-            <Link className="hover:text-brandGold transition-colors" to="/">
+            <Link className="hover:text-brandGold transition-colors" to="/" onClick={() => window.scrollTo(0, 0)}>
               Home
             </Link>
 
             <Link
               className="hover:text-brandGold transition-colors"
               to="/products"
+              onClick={() => window.scrollTo(0, 0)}
             >
               Products
             </Link>
@@ -52,6 +53,7 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
             <Link
               className="hover:text-brandGold transition-colors"
               to="/about"
+              onClick={() => window.scrollTo(0, 0)}
             >
               About Us
             </Link>
@@ -233,7 +235,7 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
           <nav className="flex flex-col items-center text-center space-y-5 uppercase text-sm tracking-widest font-semibold">
             <Link
               to="/"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); window.scrollTo(0, 0); }}
               className="hover:text-brandGold transition-colors"
             >
               Home
@@ -241,7 +243,7 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
 
             <Link
               to="/products"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); window.scrollTo(0, 0); }}
               className="hover:text-brandGold transition-colors"
             >
               Products
@@ -249,7 +251,7 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
 
             <Link
               to="/about"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); window.scrollTo(0, 0); }}
               className="hover:text-brandGold transition-colors"
             >
               About Us
