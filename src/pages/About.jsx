@@ -2,7 +2,7 @@ import aboutHero from "../assets/images/about-hero.jpg";
 import aboutSplit from "../assets/images/about-split.jpg";
 import aboutBeans from "../assets/images/about-beans.jpg";
 import aboutCta from "../assets/images/about-cta.jpg";
-import warriorBloodLogo from "../assets/images/warrior-blood-logo-done.png";
+// import warriorBloodLogo from "../assets/images/warrior-blood-logo-done.png";
 
 export default function About() {
     return (
@@ -105,7 +105,8 @@ export default function About() {
             </section>
 
             {/* CTA Banner */}
-            <section className="relative w-full overflow-hidden mt-8">
+            <section className="relative z-10 max-w-7xl mx-auto px-4 mt-8">
+                <div className="relative w-full overflow-hidden rounded-3xl border border-white/10">
                 <img
                     src={aboutCta}
                     alt="Warriors Blood CTA"
@@ -113,7 +114,7 @@ export default function About() {
                 />
                 <div className="absolute inset-0 bg-linear-to-r from-[#0e0804]/90 via-transparent to-[#0e0804]/90" />
 
-                <div className="relative z-10 flex items-center justify-between max-w-7xl mx-auto px-8 py-24 gap-8">
+                <div className="relative z-10 flex items-center justify-between px-8 py-24 md:px-24 md:py-32 gap-8">
                     {/* Left Button */}
                     <a
                         href="/products"
@@ -135,7 +136,7 @@ export default function About() {
                     </a>
 
                     {/* Center Image */}
-                    <div className="shrink-0">
+                    {/* <div className="shrink-0">
                         <div className="w-48 h-48 rounded-full ">
                             <img
                                 src={warriorBloodLogo}
@@ -143,7 +144,7 @@ export default function About() {
                                 className="w-full h-full object-cover scale-[1.22]"
                             />
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Right Button */}
                     <a
@@ -164,6 +165,7 @@ export default function About() {
             ">
                         Contact Us
                     </a>
+                </div>
                 </div>
             </section>
         </main>
