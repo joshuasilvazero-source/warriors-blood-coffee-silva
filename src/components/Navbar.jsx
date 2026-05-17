@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import warriorsBloodLogo from "../assets/images/warrior-blood-logo-done.png";
+import QuantityStepper from "./QuantityStepper";
 
-function Navbar({ cartItems, removeFromCart }) {
+function Navbar({ cartItems, addToCart, removeFromCart }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -153,19 +154,14 @@ function Navbar({ cartItems, removeFromCart }) {
                             <p className="text-brandGold text-sm font-bold mt-1">
                               {item.price}
                             </p>
-
-                            <p className="text-xs text-gray-400 mt-1">
-                              Qty: {item.quantity}
-                            </p>
                           </div>
                         </div>
 
-                        <button
-                          onClick={() => removeFromCart(item.name)}
-                          className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 text-gray-400 hover:text-brandRed hover:border-brandRed/40 hover:bg-brandRed/10 transition-all duration-300 hover:rotate-90"
-                        >
-                          ×
-                        </button>
+                        <QuantityStepper
+                          quantity={item.quantity}
+                          onIncrement={() => addToCart(item)}
+                          onDecrement={() => removeFromCart(item.name)}
+                        />
                       </div>
                     ))}
                   </div>
