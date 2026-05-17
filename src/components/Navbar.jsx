@@ -31,7 +31,7 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
 
           <h1 className="font-heading text-base md:text-lg tracking-widest uppercase">
             Warriors <span className="text-brandRed">Blood</span>{" "}
-            <span className="hidden md:inline">Coffee Company</span>
+            Coffee<span className="hidden md:inline"> Company</span>
           </h1>
         </Link>
 
