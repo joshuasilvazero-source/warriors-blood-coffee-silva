@@ -40,6 +40,12 @@ function App() {
         );
     }
 
+    function removeAllOfItem(productName) {
+        setCartItems((prevItems) =>
+            prevItems.filter((item) => item.name !== productName)
+        );
+    }
+
     return (
         <>
             <Navbar cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
@@ -66,7 +72,7 @@ function App() {
                 {/* Checkout Page */}
                 <Route
                     path="/checkout"
-                    element={<Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />}
+                    element={<Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} removeAllOfItem={removeAllOfItem} />}
                 />
             </Routes>
 

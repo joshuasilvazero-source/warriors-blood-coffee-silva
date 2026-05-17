@@ -1,6 +1,6 @@
 import QuantityStepper from "../components/QuantityStepper";
 
-export default function Checkout({ cartItems, addToCart, removeFromCart }) {
+export default function Checkout({ cartItems, addToCart, removeFromCart, removeAllOfItem }) {
   const subtotal = cartItems.reduce((total, item) => {
     return total + Number(item.price.replace("$", "")) * item.quantity;
   }, 0);
@@ -92,7 +92,7 @@ export default function Checkout({ cartItems, addToCart, removeFromCart }) {
                             </p>
 
                             <button
-                              onClick={() => removeFromCart(item.name)}
+                              onClick={() => removeAllOfItem(item.name)}
                               className="
                                 mt-3
                                 text-xs
