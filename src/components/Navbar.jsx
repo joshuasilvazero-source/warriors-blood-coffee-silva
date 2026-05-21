@@ -114,11 +114,124 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
                   </p>
                 </div>
 
-                {cartItems.length === 0 ? (
-                  <div className="px-6 py-12 text-center">
-                    <div className="w-20 h-20 mx-auto mb-5 rounded-full border border-brandGold/30 bg-white/5 flex items-center justify-center text-3xl">
-                      🛒
+                        {/* Desktop Cart Dropdown */}
+                        {cartOpen && (
+                            <div className="absolute right-0 mt-4 w-[380px] bg-[#0d0b09] border border-brandGold/30 rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.85)] overflow-hidden">
+                                <div className="px-6 py-5 border-b border-white/10 bg-gradient-to-r from-[#1a100b] to-[#0a0a0a]">
+                                    <div className="flex items-center justify-between">
+                                        <h3 className="font-heading text-xl tracking-widest uppercase">
+                                            Shopping Cart
+                                        </h3>
+
+                                        <button
+                                            onClick={() => setCartOpen(false)}
+                                            className="flex items-center justify-center w-10 h-10 rounded-full text-gray-400 hover:text-brandGold hover:bg-white/5 transition-all duration-300 hover:rotate-90 hover:scale-110">
+                                            ×
+                                        </button>
+                                    </div>
+
+                                    <p className="text-xs text-gray-400 mt-1">
+                                        {cartCount} item{cartCount !== 1 ? "s" : ""} added
+                                    </p>
+                                </div>
+
+                                {cartItems.length === 0 ? (
+                                    <div className="px-6 py-12 text-center">
+                                        <div className="w-20 h-20 mx-auto mb-5 rounded-full border border-brandGold/30 bg-white/5 flex items-center justify-center text-3xl">
+                                            🛒
+                                        </div>
+
+                                        <h4 className="font-heading text-xl mb-2">
+                                            Your cart is empty
+                                        </h4>
+
+                                        <p className="text-sm text-gray-400 max-w-xs mx-auto mb-7">
+                                            Looks like you haven’t added any coffee yet.
+                                        </p>
+
+                                        <Link
+                                            to="/products"
+                                            onClick={() => setCartOpen(false)}
+                                            className="inline-flex items-center justify-center rounded-full bg-brandGold hover:bg-[#a8843f] hover:text-white text-black font-bold py-3 px-8 uppercase tracking-widest text-xs transition-all duration-300 hover:scale-105">
+                                            Start Shopping
+                                        </Link>
+                                    </div>
+                                ) : (
+                                    <div className="max-h-[330px] overflow-y-auto p-5 space-y-4">
+                                        {cartItems.map((item) => (
+                                            <div
+                                                key={item.name}
+                                                className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
+                                                <div className="flex items-center gap-4">
+                                                    <img
+                                                        src={item.image}
+                                                        alt={item.name}
+                                                        className="w-20 h-20 object-contain rounded-xl bg-black/40 p-2"
+                                                    />
+
+                                                    <div>
+                                                        <h4 className="font-heading text-sm tracking-widest">
+                                                            {item.name}
+                                                        </h4>
+
+                                                        <p className="text-brandGold text-sm font-bold mt-1">
+                                                            {item.price}
+                                                        </p>
+
+                                                        <p className="text-xs text-gray-400 mt-1">
+                                                            Qty: {item.quantity}
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <button
+                                                    onClick={() => removeFromCart(item.name)}
+                                                    className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 text-gray-400 hover:text-brandRed hover:border-brandRed/40 hover:bg-brandRed/10 transition-all duration-300 hover:rotate-90">
+                                                    ×
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                <div className="px-6 py-5 border-t border-white/10 bg-[#090909]">
+                                    <div className="flex items-center justify-between mb-3 text-sm">
+                                        <span className="text-gray-400">Subtotal</span>
+                                        <span className="text-brandGold font-bold">
+                                            ${subtotal.toFixed(2)}
+                                        </span>
+                                    </div>
+
+                                    <p className="text-[11px] text-gray-500 mb-4">
+                                        Shipping and taxes calculated at checkout.
+                                    </p>
+
+                                    {cartItems.length === 0 ? (
+                                        <button
+                                            disabled
+                                            className="w-full rounded-full py-4 bg-brandGold text-black font-bold uppercase tracking-widest text-xs opacity-40 cursor-not-allowed">
+                                            Checkout
+                                        </button>
+                                    ) : (
+                                        <Link
+                                            to="/checkout"
+                                            onClick={() => setCartOpen(false)}
+                                            className="block text-center w-full rounded-full py-4 bg-brandGold text-black font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-[#a8843f] hover:text-white">
+                                            Checkout
+                                        </Link>
+                                    )}
+
+                                    <Link
+                                        to="/products"
+                                        onClick={() => setCartOpen(false)}
+                                        className="mt-4 block text-center text-xs uppercase tracking-widest text-brandGold hover:text-white transition-colors">
+                                        Continue Shopping
+                                    </Link>
+                                </div>
+                            </div>
+                        )}
                     </div>
+                </div>
 
                     <h4 className="font-heading text-xl mb-2">
                       Your cart is empty
@@ -353,13 +466,9 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
                     </Link>
                   </div>
                 </div>
-              )}
-            </div>
-          )}
-        </div>
-      )}
-    </header>
-  );
+            )}
+        </header>
+    );
 }
 
 export default Navbar;

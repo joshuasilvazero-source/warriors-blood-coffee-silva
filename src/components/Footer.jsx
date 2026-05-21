@@ -4,8 +4,8 @@ export default function Footer() {
     return (
         <footer className="bg-brandBlack pt-20 pb-10 border-t border-white/5" id="contact">
             <div className="max-w-7xl mx-auto px-4">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mb-16">
-                    <div className="col-span-2 md:col-span-1 text-center md:text-left">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
+                    <div>
                         <h4 className="font-heading text-2xl mb-6">
                             Warriors <span className="text-brandRed">Blood</span> Coffee
                         </h4>
@@ -17,10 +17,7 @@ export default function Footer() {
 
                         <div className="flex items-center space-x-5 justify-center md:justify-start">
                             <a
-                                href="https://www.instagram.com/warriorsbloodcoffee/"
-                                target="_blank"
-                                rel="noreferrer"
-                                title="instagram.com/warriorsbloodcoffee"
+                                href="#"
                                 className="group relative flex items-center justify-center w-12 h-12 rounded-full border border-[#c5a059]/30 bg-white/5 transition-all duration-500 hover:scale-110 hover:border-[#c5a059] hover:shadow-[0_0_25px_rgba(197,160,89,0.45)]">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -59,29 +56,28 @@ export default function Footer() {
 
                         <ul className="space-y-4 text-sm font-semibold uppercase tracking-tighter">
                             <li>
-                                <Link className="hover:text-brandGold transition-colors" to="/" onClick={() => window.scrollTo(0, 0)}>
+                                <a className="hover:text-brandGold transition-colors" href="#">
                                     Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className="hover:text-brandGold transition-colors" to="/products" onClick={() => window.scrollTo(0, 0)}>
-                                    Shop
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    className="hover:text-brandGold transition-colors"
-                                    to="/about"
-                                    onClick={() => window.scrollTo(0, 0)}>
-                                    About Us
-                                </Link>
+                                </a>
                             </li>
                             <li>
                                 <a
                                     className="hover:text-brandGold transition-colors"
-                                    href="#contact">
-                                    Contact Us
+                                    href="./products">
+                                    Shop
                                 </a>
+                            </li>
+                            <li>
+                                <a className="hover:text-brandGold transition-colors" href="#about">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <Link
+                                    className="hover:text-brandGold transition-colors"
+                                    to="/contact">
+                                    Contact Us
+                                </Link>
                             </li>
                         </ul>
                     </div>

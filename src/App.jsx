@@ -13,6 +13,12 @@ import ScrollToTop from "./components/ScrollToTop";
 
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
+import Contact from "./pages/Contact";
+
+function App() {
+    const [cartItems, setCartItems] = useState([]);
+
+    function addToCart(product) {
 import About from "./pages/About";
 
 function App() {
@@ -54,6 +60,9 @@ function App() {
         );
     }
 
+    return (
+        <>
+            <Navbar cartItems={cartItems} removeFromCart={removeFromCart} />
     function removeAllOfItem(productName) {
         setCartItems((prevItems) =>
             prevItems.filter((item) => item.name !== productName)
@@ -81,6 +90,17 @@ function App() {
                 {/* Products Page */}
                 <Route path="/products" element={<Products addToCart={addToCart} />} />
 
+                {/* Checkout Page */}
+                <Route
+                    path="/checkout"
+                    element={<Checkout cartItems={cartItems} removeFromCart={removeFromCart} />}
+                />
+
+                {/* Contact Page */}
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+
+            <Footer />
                 {/* About Page */}
                 <Route path="/about" element={<About />} />
 
