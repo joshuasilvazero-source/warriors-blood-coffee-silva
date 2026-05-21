@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import tuskBoneImage from "../assets/images/TuskandBones.png";
 import desertRatImage from "../assets/images/DesertRat.png";
 import warriorsCoffeeImage from "../assets/images/WarriorsCoffee.png";
@@ -97,8 +98,8 @@ function TopSellers({addToCart}) {
                 </div>
 
                 <div className="mt-16 text-center">
-                    <a
-                        href="#shop"
+                    <Link
+                        to="/products"
                         className="
         group
         relative
@@ -148,7 +149,7 @@ function TopSellers({addToCart}) {
                                 →
                             </span>
                         </span>
-                    </a>
+                    </Link>
                 </div>
             </div>
             <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-black to-transparent pointer-events-none"></div>

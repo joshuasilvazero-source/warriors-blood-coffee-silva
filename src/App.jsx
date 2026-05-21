@@ -9,6 +9,7 @@ import TopSellers from "./components/TopSellers";
 import Mission from "./components/Mission";
 import Footer from "./components/Footer";
 import CartToast from "./components/CartToast";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
@@ -61,6 +62,7 @@ function App() {
 
     return (
         <>
+            <ScrollToTop />
             <Navbar cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
 
             <Routes>
