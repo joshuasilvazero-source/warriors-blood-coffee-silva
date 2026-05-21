@@ -4,6 +4,8 @@ import tuskBoneImage from "../assets/images/TuskandBones.png";
 import desertRatImage from "../assets/images/DesertRat.png";
 import warriorsCoffeeImage from "../assets/images/WarriorsCoffee.png";
 import firstLightImage from "../assets/images/FirstLightCoffee.png";
+import ravenVIIImage from "../assets/images/3DravenVII.png";
+import smokeGunpowderImage from "../assets/images/3Dsmoke-gunpowder.png";
 
 const products = [
     {
@@ -14,7 +16,7 @@ const products = [
         roast: "Dark Roast",
         roastIntensity: 4,
         tagline: "Bold. Relentless. Unapologetic.",
-        flavorNotes: ["Dark", "Smoky", "Bold", "Earthy"],
+        flavorNotes: ["Dark", "Smokey", "Bold", "Earthy"],
         description: [
             "'Tusk and Bone' is a 100% Brazilian origin medium-dark roast. It carries notes of dark chocolate and earth. It has a deep and smokey finish that is perfect for the first brew of the day."
         ]
@@ -29,7 +31,7 @@ const products = [
         tagline: "Gritty. Rugged. Battle-Tested.",
         flavorNotes: ["Milk Chocolate", "Smoke", "Earth and Nuts"],
         description: [
-            "A 100% Colombian origin bean that carries notes of milk chocolate with a nutty finish"
+            "A 100% Colombian origin bean that carries notes of milk chocolate with a nutty finish."
         ]
     },
     {
@@ -56,8 +58,34 @@ const products = [
         tagline: "Rise Early. Strike Hard. Stay Sharp.",
         flavorNotes: ["Caramel", "Golden", "Smooth", "Bright"],
         description: [
-            "A smooth medium roast with bright, golden notes of caramel and toasted grain. The perfect start to your mission.",
+            "A smooth medium roast with bright, golden notes of caramel and toasted grain. 100% Brazilian origin. The perfect start to your mission.",
             "Smooth enough for the early hours, strong enough to carry you through the day."
+        ]
+    },
+    {
+        id: 5,
+        name: "Raven 7",
+        price: "$22.99",
+        image: ravenVIIImage,
+        roast: "Dark Roast",
+        roastIntensity: 5,
+        tagline: "Darkest. Deepest. Most Brilliant.",
+        flavorNotes: ["Dark", "Intense", "Bold", "Rich"],
+        description: [
+            "A 100% Brazilian dark roast. It is our darkest and most brilliant roast. Packed with the flavors many dark roast drinkers chase."
+        ]
+    },
+    {
+        id: 6,
+        name: "Smoke & Gunpowder",
+        price: "$22.99",
+        image: smokeGunpowderImage,
+        roast: "Medium Roast",
+        roastIntensity: 3,
+        tagline: "Smooth. Bold. Battle-Ready.",
+        flavorNotes: ["Smooth", "Nutty", "Bright", "Rich"],
+        description: [
+            "Our first medium roast made with 100% Colombian beans."
         ]
     }
 ];
@@ -146,7 +174,7 @@ function ProductModal({ product, onClose, onAddToCart }) {
                         </div>
 
                         {/* Attribute cards */}
-                        <div className="grid grid-cols-3 gap-3 mb-6">
+                        <div className="grid grid-cols-2 gap-3 mb-6">
                             {/* Flavor notes */}
                             <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col items-center text-center">
                                 <Coffee size={20} className="text-brandGold mb-2" />
@@ -171,25 +199,6 @@ function ProductModal({ product, onClose, onAddToCart }) {
                                 <RoastMeter intensity={product.roastIntensity} />
                             </div>
 
-                            {/* Best for */}
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col items-center text-center">
-                                <svg
-                                    className="w-5 h-5 text-brandGold mb-2"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="1.5"
-                                    strokeLinejoin="round">
-                                    <path d="M5 8h11v6a4 4 0 01-4 4H9a4 4 0 01-4-4V8z" />
-                                    <path d="M16 10h2a2 2 0 010 4h-2" strokeLinecap="round" />
-                                </svg>
-                                <p className="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">
-                                    Best For
-                                </p>
-                                <p className="text-xs text-gray-300 leading-relaxed">
-                                    {product.bestFor}
-                                </p>
-                            </div>
                         </div>
 
                         {/* Callout */}
