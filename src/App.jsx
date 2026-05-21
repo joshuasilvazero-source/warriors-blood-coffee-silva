@@ -14,11 +14,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
-
-function App() {
-    const [cartItems, setCartItems] = useState([]);
-
-    function addToCart(product) {
 import About from "./pages/About";
 
 function App() {
@@ -60,9 +55,6 @@ function App() {
         );
     }
 
-    return (
-        <>
-            <Navbar cartItems={cartItems} removeFromCart={removeFromCart} />
     function removeAllOfItem(productName) {
         setCartItems((prevItems) =>
             prevItems.filter((item) => item.name !== productName)
@@ -75,7 +67,6 @@ function App() {
             <Navbar cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
 
             <Routes>
-                {/* Homepage */}
                 <Route
                     path="/"
                     element={
@@ -87,28 +78,16 @@ function App() {
                     }
                 />
 
-                {/* Products Page */}
                 <Route path="/products" element={<Products addToCart={addToCart} />} />
 
-                {/* Checkout Page */}
-                <Route
-                    path="/checkout"
-                    element={<Checkout cartItems={cartItems} removeFromCart={removeFromCart} />}
-                />
-
-                {/* Contact Page */}
-                <Route path="/contact" element={<Contact />} />
-            </Routes>
-
-            <Footer />
-                {/* About Page */}
                 <Route path="/about" element={<About />} />
 
-                {/* Checkout Page */}
                 <Route
                     path="/checkout"
                     element={<Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} removeAllOfItem={removeAllOfItem} />}
                 />
+
+                <Route path="/contact" element={<Contact />} />
             </Routes>
 
             <Footer />
