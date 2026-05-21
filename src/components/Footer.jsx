@@ -4,8 +4,8 @@ export default function Footer() {
     return (
         <footer className="bg-brandBlack pt-20 pb-10 border-t border-white/5" id="contact">
             <div className="max-w-7xl mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
-                    <div>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mb-16">
+                    <div className="col-span-2 md:col-span-1 text-center md:text-left">
                         <h4 className="font-heading text-2xl mb-6">
                             Warriors <span className="text-brandRed">Blood</span> Coffee
                         </h4>
@@ -52,7 +52,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="text-center">
                         <h4 className="font-heading text-brandGold tracking-widest uppercase mb-6 text-sm">
                             Navigation
                         </h4>
@@ -86,7 +86,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div className="text-sm">
+                    <div className="text-sm text-center">
                         <h4 className="font-heading text-brandGold tracking-widest uppercase mb-6">
                             Contact Us
                         </h4>
