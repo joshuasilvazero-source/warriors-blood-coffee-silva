@@ -11,7 +11,7 @@ const products = [
     {
         id: 1,
         name: "Tusk & Bone",
-        price: "$22.99",
+        price: "$15.00",
         image: tuskBoneImage,
         roast: "Dark Roast",
         roastIntensity: 4,
@@ -24,7 +24,7 @@ const products = [
     {
         id: 2,
         name: "Desert Rat",
-        price: "$22.99",
+        price: "$15.00",
         image: desertRatImage,
         roast: "Medium-Dark Roast",
         roastIntensity: 4,
@@ -37,7 +37,7 @@ const products = [
     {
         id: 3,
         name: "WBCC Dark Roast",
-        price: "$22.99",
+        price: "$15.00",
         image: warriorsCoffeeImage,
         roast: "Dark Roast",
         roastIntensity: 5,
@@ -51,7 +51,7 @@ const products = [
     {
         id: 4,
         name: "First Light",
-        price: "$22.99",
+        price: "$15.00",
         image: firstLightImage,
         roast: "Medium Roast",
         roastIntensity: 3,
@@ -64,8 +64,8 @@ const products = [
     },
     {
         id: 5,
-        name: "Raven 7",
-        price: "$22.99",
+        name: "Raven VII",
+        price: "$15.00",
         image: ravenVIIImage,
         roast: "Dark Roast",
         roastIntensity: 5,
@@ -78,15 +78,13 @@ const products = [
     {
         id: 6,
         name: "Smoke & Gunpowder",
-        price: "$22.99",
+        price: "$15.00",
         image: smokeGunpowderImage,
         roast: "Medium Roast",
         roastIntensity: 3,
         tagline: "Smooth. Bold. Battle-Ready.",
         flavorNotes: ["Smooth", "Nutty", "Bright", "Rich"],
-        description: [
-            "Our first medium roast made with 100% Colombian beans."
-        ]
+        description: ["Our first medium roast made with 100% Colombian beans."]
     }
 ];
 
@@ -198,7 +196,6 @@ function ProductModal({ product, onClose, onAddToCart }) {
                                 <p className="text-xs text-gray-300 mb-1">{product.roast}</p>
                                 <RoastMeter intensity={product.roastIntensity} />
                             </div>
-
                         </div>
 
                         {/* Callout */}
