@@ -6,22 +6,22 @@ import firstLightImage from "../assets/images/FirstLightCoffee.png";
 const products = [
     {
         name: "Tusk & Bone",
-        price: "$22.99",
+        price: "$15.00",
         image: tuskBoneImage
     },
     {
         name: "Desert Rat",
-        price: "$22.99",
+        price: "$15.00",
         image: desertRatImage
     },
     {
         name: "Warriors Coffee",
-        price: "$22.99",
+        price: "$15.00",
         image: warriorsCoffeeImage
     },
     {
         name: "First Light",
-        price: "$22.99",
+        price: "$15.00",
         image: firstLightImage
     }
 ];

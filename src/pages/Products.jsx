@@ -15,7 +15,6 @@ const products = [
         roastIntensity: 4,
         tagline: "Bold. Relentless. Unapologetic.",
         flavorNotes: ["Dark", "Smoky", "Bold", "Earthy"],
-        bestFor: "Those who want maximum strength and intensity",
         description: [
             "'Tusk and Bone' is a 100% Brazilian origin medium-dark roast. It carries notes of dark chocolate and earth. It has a deep and smokey finish that is perfect for the first brew of the day."
         ]
@@ -29,7 +28,6 @@ const products = [
         roastIntensity: 4,
         tagline: "Gritty. Rugged. Battle-Tested.",
         flavorNotes: ["Milk Chocolate", "Smoke", "Earth and Nuts"],
-        bestFor: "Those who thrive under pressure and harsh conditions",
         description: [
             "A 100% Colombian origin bean that carries notes of milk chocolate with a nutty finish"
         ]
@@ -43,7 +41,6 @@ const products = [
         roastIntensity: 5,
         tagline: "Forged in Honor. Roasted with Purpose.",
         flavorNotes: ["Rich", "Deep", "Dark", "Full-Body"],
-        bestFor: "Those who demand consistency and commanding flavor",
         description: [
             "Our signature dark roast — deep, intense, and unyielding. The standard bearer of Warriors Blood Coffee Company. 100% Colombian bang bang",
             "A cup that commands respect from the first sip to the last."
@@ -58,7 +55,6 @@ const products = [
         roastIntensity: 3,
         tagline: "Rise Early. Strike Hard. Stay Sharp.",
         flavorNotes: ["Caramel", "Golden", "Smooth", "Bright"],
-        bestFor: "Early risers who need clarity and focus at dawn",
         description: [
             "A smooth medium roast with bright, golden notes of caramel and toasted grain. The perfect start to your mission.",
             "Smooth enough for the early hours, strong enough to carry you through the day."
