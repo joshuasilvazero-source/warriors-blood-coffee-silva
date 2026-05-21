@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./index.css";
@@ -8,6 +8,8 @@ import Hero from "./components/Hero";
 import TopSellers from "./components/TopSellers";
 import Mission from "./components/Mission";
 import Footer from "./components/Footer";
+import CartToast from "./components/CartToast";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
@@ -15,8 +17,19 @@ import About from "./pages/About";
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
+    const [cartToast, setCartToast] = useState({ name: null, visible: false });
 
-    function addToCart(product) {
+    useEffect(() => {
+        if (!cartToast.name) return;
+        const hideTimer = setTimeout(() => setCartToast(prev => ({ ...prev, visible: false })), 2200);
+        const clearTimer = setTimeout(() => setCartToast({ name: null, visible: false }), 2500);
+        return () => {
+            clearTimeout(hideTimer);
+            clearTimeout(clearTimer);
+        };
+    }, [cartToast.name]);
+
+    function addToCart(product, { silent = false } = {}) {
         setCartItems((prevItems) => {
             const existingItem = prevItems.find((item) => item.name === product.name);
 
@@ -28,6 +41,7 @@ function App() {
 
             return [...prevItems, { ...product, quantity: 1 }];
         });
+        if (!silent) setCartToast({ name: product.name, visible: true });
     }
 
     function removeFromCart(productName) {
@@ -40,9 +54,16 @@ function App() {
         );
     }
 
+    function removeAllOfItem(productName) {
+        setCartItems((prevItems) =>
+            prevItems.filter((item) => item.name !== productName)
+        );
+    }
+
     return (
         <>
-            <Navbar cartItems={cartItems} removeFromCart={removeFromCart} />
+            <ScrollToTop />
+            <Navbar cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
 
             <Routes>
                 {/* Homepage */}
@@ -66,11 +87,12 @@ function App() {
                 {/* Checkout Page */}
                 <Route
                     path="/checkout"
-                    element={<Checkout cartItems={cartItems} removeFromCart={removeFromCart} />}
+                    element={<Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} removeAllOfItem={removeAllOfItem} />}
                 />
             </Routes>
 
             <Footer />
+            <CartToast productName={cartToast.name} visible={cartToast.visible} />
         </>
     );
 }

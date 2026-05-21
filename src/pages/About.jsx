@@ -1,8 +1,8 @@
+import { Link } from "react-router-dom";
 import aboutHero from "../assets/images/about-hero.jpg";
 import aboutSplit from "../assets/images/about-split.jpg";
 import aboutBeans from "../assets/images/about-beans.jpg";
 import aboutCta from "../assets/images/about-cta.jpg";
-// import warriorBloodLogo from "../assets/images/warrior-blood-logo-done.png";
 
 export default function About() {
     return (
@@ -116,8 +116,8 @@ export default function About() {
 
                 <div className="relative z-10 flex items-center justify-between px-8 py-24 md:px-24 md:py-32 gap-8">
                     {/* Left Button */}
-                    <a
-                        href="/products"
+                    <Link
+                        to="/products"
                         className="
               rounded-full
               bg-linear-to-r from-[#c5a059] via-[#b89146] to-[#8a6a32]
@@ -133,7 +133,7 @@ export default function About() {
               backdrop-blur-sm
             ">
                         Shop Coffee
-                    </a>
+                    </Link>
 
                     {/* Center Image */}
                     {/* <div className="shrink-0">

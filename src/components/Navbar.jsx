@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import warriorsBloodLogo from "../assets/images/warrior-blood-logo-done.png";
+import QuantityStepper from "./QuantityStepper";
 
-function Navbar({ cartItems, removeFromCart }) {
+function Navbar({ cartItems, addToCart, removeFromCart }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -30,7 +31,7 @@ function Navbar({ cartItems, removeFromCart }) {
 
           <h1 className="font-heading text-base md:text-lg tracking-widest uppercase">
             Warriors <span className="text-brandRed">Blood</span>{" "}
-            <span className="hidden md:inline">Coffee Company</span>
+            Coffee<span className="hidden md:inline"> Company</span>
           </h1>
         </Link>
 
@@ -84,9 +85,11 @@ function Navbar({ cartItems, removeFromCart }) {
                 />
               </svg>
 
-              <span className="absolute -top-2 -right-2 bg-brandGold text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
-                {cartCount}
-              </span>
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-brandGold text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </button>
 
             {/* Desktop Cart Dropdown */}
@@ -155,19 +158,14 @@ function Navbar({ cartItems, removeFromCart }) {
                             <p className="text-brandGold text-sm font-bold mt-1">
                               {item.price}
                             </p>
-
-                            <p className="text-xs text-gray-400 mt-1">
-                              Qty: {item.quantity}
-                            </p>
                           </div>
                         </div>
 
-                        <button
-                          onClick={() => removeFromCart(item.name)}
-                          className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 text-gray-400 hover:text-brandRed hover:border-brandRed/40 hover:bg-brandRed/10 transition-all duration-300 hover:rotate-90"
-                        >
-                          ×
-                        </button>
+                        <QuantityStepper
+                          quantity={item.quantity}
+                          onIncrement={() => addToCart(item, { silent: true })}
+                          onDecrement={() => removeFromCart(item.name)}
+                        />
                       </div>
                     ))}
                   </div>
@@ -216,12 +214,19 @@ function Navbar({ cartItems, removeFromCart }) {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white text-3xl"
-        >
-          {menuOpen ? "×" : "☰"}
-        </button>
+        <div className="relative md:hidden">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-white text-3xl"
+          >
+            {menuOpen ? "×" : "☰"}
+          </button>
+          {cartCount > 0 && !menuOpen && (
+            <span className="absolute -top-2 -right-2 bg-brandGold text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center pointer-events-none">
+              {cartCount}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Mobile Dropdown */}
@@ -317,19 +322,14 @@ function Navbar({ cartItems, removeFromCart }) {
                           <p className="text-brandGold text-sm font-bold mt-1">
                             {item.price}
                           </p>
-
-                          <p className="text-xs text-gray-400">
-                            Qty: {item.quantity}
-                          </p>
                         </div>
                       </div>
 
-                      <button
-                        onClick={() => removeFromCart(item.name)}
-                        className="w-8 h-8 rounded-full border border-white/10 text-gray-400 hover:text-brandRed hover:border-brandRed/40"
-                      >
-                        ×
-                      </button>
+                      <QuantityStepper
+                        quantity={item.quantity}
+                        onIncrement={() => addToCart(item, { silent: true })}
+                        onDecrement={() => removeFromCart(item.name)}
+                      />
                     </div>
                   ))}
 
