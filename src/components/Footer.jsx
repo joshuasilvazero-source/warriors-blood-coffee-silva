@@ -31,7 +31,10 @@ export default function Footer() {
                             </a>
 
                             <a
-                                href="#"
+                                href="https://www.facebook.com/warriorsbloodcoffee/"
+                                target="_blank"
+                                rel="noreferrer"
+                                title="facebook.com/warriorsbloodcoffee"
                                 className="group relative flex items-center justify-center w-12 h-12 rounded-full border border-[#c5a059]/30 bg-white/5 transition-all duration-500 hover:scale-110 hover:border-[#c5a059] hover:shadow-[0_0_25px_rgba(197,160,89,0.45)]">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +49,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="text-center">
                         <h4 className="font-heading text-brandGold tracking-widest uppercase mb-6 text-sm">
                             Navigation
                         </h4>
@@ -79,7 +82,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div className="text-sm">
+                    <div className="text-sm text-center">
                         <h4 className="font-heading text-brandGold tracking-widest uppercase mb-6">
                             Contact Us
                         </h4>
