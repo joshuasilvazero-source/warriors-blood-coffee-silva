@@ -13,6 +13,7 @@ import ScrollToTop from "./components/ScrollToTop";
 
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
+import Contact from "./pages/Contact";
 import About from "./pages/About";
 
 function App() {
@@ -66,7 +67,6 @@ function App() {
             <Navbar cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
 
             <Routes>
-                {/* Homepage */}
                 <Route
                     path="/"
                     element={
@@ -78,17 +78,16 @@ function App() {
                     }
                 />
 
-                {/* Products Page */}
                 <Route path="/products" element={<Products addToCart={addToCart} />} />
 
-                {/* About Page */}
                 <Route path="/about" element={<About />} />
 
-                {/* Checkout Page */}
                 <Route
                     path="/checkout"
                     element={<Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} removeAllOfItem={removeAllOfItem} />}
                 />
+
+                <Route path="/contact" element={<Contact />} />
             </Routes>
 
             <Footer />

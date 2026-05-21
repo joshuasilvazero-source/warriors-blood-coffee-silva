@@ -125,7 +125,7 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
                     </h4>
 
                     <p className="text-sm text-gray-400 max-w-xs mx-auto mb-7">
-                      Looks like you haven’t added any coffee yet.
+                      Looks like you haven't added any coffee yet.
                     </p>
 
                     <Link

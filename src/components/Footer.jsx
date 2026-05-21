@@ -4,8 +4,8 @@ export default function Footer() {
     return (
         <footer className="bg-brandBlack pt-20 pb-10 border-t border-white/5" id="contact">
             <div className="max-w-7xl mx-auto px-4">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mb-16">
-                    <div className="col-span-2 md:col-span-1 text-center md:text-left">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
+                    <div className="col-span-2 md:col-span-1">
                         <h4 className="font-heading text-2xl mb-6">
                             Warriors <span className="text-brandRed">Blood</span> Coffee
                         </h4>
@@ -69,19 +69,16 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    className="hover:text-brandGold transition-colors"
-                                    to="/about"
-                                    onClick={() => window.scrollTo(0, 0)}>
+                                <Link className="hover:text-brandGold transition-colors" to="/about" onClick={() => window.scrollTo(0, 0)}>
                                     About Us
                                 </Link>
                             </li>
                             <li>
-                                <a
+                                <Link
                                     className="hover:text-brandGold transition-colors"
-                                    href="#contact">
+                                    to="/contact">
                                     Contact Us
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

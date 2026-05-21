@@ -153,7 +153,7 @@ function ProductModal({ product, onClose, onAddToCart }) {
             </div>
 
             {/* Attribute cards */}
-            <div className="grid grid-cols-3 gap-3 mb-6">
+            <div className="grid grid-cols-2 gap-3 mb-6 max-w-xs mx-auto">
 
               {/* Flavor notes */}
               <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col items-center text-center">
@@ -173,16 +173,6 @@ function ProductModal({ product, onClose, onAddToCart }) {
                 <p className="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">Roast Level</p>
                 <p className="text-xs text-gray-300 mb-1">{product.roast}</p>
                 <RoastMeter intensity={product.roastIntensity} />
-              </div>
-
-              {/* Best for */}
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col items-center text-center">
-                <svg className="w-5 h-5 text-brandGold mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round">
-                  <path d="M5 8h11v6a4 4 0 01-4 4H9a4 4 0 01-4-4V8z" />
-                  <path d="M16 10h2a2 2 0 010 4h-2" strokeLinecap="round" />
-                </svg>
-                <p className="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">Best For</p>
-                <p className="text-xs text-gray-300 leading-relaxed">{product.bestFor}</p>
               </div>
 
             </div>
