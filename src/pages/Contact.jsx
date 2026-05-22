@@ -34,10 +34,31 @@ export default function Contact() {
     }
 
     return (
-        <div id="contact" className="min-h-screen bg-[#1a1410] flex items-center px-4 py-12">
-            <div className="max-w-6xl w-full mx-auto">
+        <div 
+            id="contact" 
+            className="relative min-h-screen flex flex-col items-center px-4 py-16 md:py-24"
+            style={{
+                backgroundImage: 'url(/images/coffee-background.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed'
+            }}
+        >
+            <div className="contact-page-heading mx-auto mb-12 text-center max-w-4xl">
+                <p className="decor-pretitle">HANDCRAFTED ROASTS</p>
+                <div className="decor-title">
+                    <span className="decor-star">★</span>
+                    <div className="decor-title-text">
+                        <span>COFFEE</span>
+                        <span>ROASTS</span>
+                    </div>
+                    <span className="decor-star">★</span>
+                </div>
+                <p className="decor-subtitle">Each roast is crafted with precision, sourced with integrity, and roasted to honor those who serve.</p>
+            </div>
+            <div className="max-w-5xl md:max-w-4xl w-full mx-auto">
                 <div className="relative bg-gradient-to-b from-[#3b2a24]/80 to-[#241611]/80 border border-white/5 rounded-3xl p-6 md:p-12 shadow-[0_30px_90px_rgba(0,0,0,0.85)]">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-8 items-start">
                         {/* Left Intro Column */}
                         <div className="text-white pr-0 md:pr-6">
                             <h5 className="text-sm text-[#bca78a] tracking-widest mb-4">
