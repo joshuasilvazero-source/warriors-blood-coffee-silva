@@ -76,7 +76,8 @@ export default function Footer() {
                             <li>
                                 <Link
                                     className="hover:text-brandGold transition-colors"
-                                    to="/contact">
+                                    to="/contact"
+                                    onClick={() => window.scrollTo(0, 0)}>
                                     Contact Us
                                 </Link>
                             </li>
