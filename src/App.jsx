@@ -75,11 +75,6 @@ function App() {
                     backgroundAttachment: 'fixed'
                 }}
             >
-                <div className="page-background-decor pointer-events-none">
-                    <p className="decor-pretitle">HANDCRAFTED ROASTS</p>
-                    <p className="decor-title">COFFEE ROASTS</p>
-                    <p className="decor-subtitle">Each roast is crafted with precision, sourced with integrity, and roasted to honor those who serve.</p>
-                </div>
                 <div className="relative z-10">
                     <Routes>
                         <Route
@@ -104,6 +99,7 @@ function App() {
 
                     <Route path="/contact" element={<Contact />} />
                 </Routes>
+            </div>
             </div>
 
             <Footer />
