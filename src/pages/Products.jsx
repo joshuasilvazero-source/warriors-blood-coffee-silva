@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { ShoppingCart, X, Flame, Coffee, Shield } from "lucide-react";
+import { useInventory } from "../hooks/useInventory";
+import StockBadge from "../components/StockBadge";
 import tuskBoneImage from "../assets/images/TuskandBones.png";
 import desertRatImage from "../assets/images/DesertRat.png";
 import warriorsCoffeeImage from "../assets/images/WarriorsCoffee.png";
@@ -7,9 +9,12 @@ import firstLightImage from "../assets/images/FirstLightCoffee.png";
 import ravenVIIImage from "../assets/images/3DravenVII.png";
 import smokeGunpowderImage from "../assets/images/3Dsmoke-gunpowder.png";
 
+// squareCatalogId links each product to its Square Catalog Item Variation.
+// Update these IDs to match your Square catalog once the backend is configured.
 const products = [
     {
         id: 1,
+        squareCatalogId: "wbcc-tusk-bone",
         name: "Tusk & Bone",
         price: "$15.00",
         image: tuskBoneImage,
@@ -23,6 +28,7 @@ const products = [
     },
     {
         id: 2,
+        squareCatalogId: "wbcc-desert-rat",
         name: "Desert Rat",
         price: "$15.00",
         image: desertRatImage,
@@ -36,6 +42,7 @@ const products = [
     },
     {
         id: 3,
+        squareCatalogId: "wbcc-dark-roast",
         name: "WBCC Dark Roast",
         price: "$15.00",
         image: warriorsCoffeeImage,
@@ -50,6 +57,7 @@ const products = [
     },
     {
         id: 4,
+        squareCatalogId: "wbcc-first-light",
         name: "First Light",
         price: "$15.00",
         image: firstLightImage,
@@ -64,6 +72,7 @@ const products = [
     },
     {
         id: 5,
+        squareCatalogId: "wbcc-raven-vii",
         name: "Raven VII",
         price: "$15.00",
         image: ravenVIIImage,
@@ -77,6 +86,7 @@ const products = [
     },
     {
         id: 6,
+        squareCatalogId: "wbcc-smoke-gunpowder",
         name: "Smoke & Gunpowder",
         price: "$15.00",
         image: smokeGunpowderImage,
@@ -242,6 +252,7 @@ function ProductModal({ product, onClose, onAddToCart }) {
 
 export default function Products({ addToCart }) {
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const { inventory, loading } = useInventory();
 
     return (
         <main className="relative min-h-screen pt-28 pb-24 bg-[#1a0e06] overflow-hidden">
@@ -311,9 +322,13 @@ export default function Products({ addToCart }) {
                                 <div className="absolute inset-0 bg-brandGold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </div>
 
-                            {/* Price */}
-                            <div className="px-6 pb-2">
+                            {/* Price + Stock */}
+                            <div className="px-6 pb-2 flex items-center gap-3 flex-wrap">
                                 <p className="text-brandGold font-bold text-lg">{product.price}</p>
+                                <StockBadge
+                                    stock={inventory[product.squareCatalogId]}
+                                    loading={loading}
+                                />
                             </div>
 
                             {/* Buttons */}

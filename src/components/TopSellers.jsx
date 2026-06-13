@@ -1,26 +1,32 @@
 import { Link } from "react-router-dom";
+import { useInventory } from "../hooks/useInventory"; 
 import tuskBoneImage from "../assets/images/TuskandBones.png";
 import desertRatImage from "../assets/images/DesertRat.png";
 import warriorsCoffeeImage from "../assets/images/WarriorsCoffee.png";
 import firstLightImage from "../assets/images/FirstLightCoffee.png";
+import StockBadge from "./StockBadge";
 
 const products = [
     {
+        squareCatalogId: "wbcc-tusk-bone",
         name: "Tusk & Bone",
         price: "$15.00",
         image: tuskBoneImage
     },
     {
+        squareCatalogId: "wbcc-desert-rat",
         name: "Desert Rat",
         price: "$15.00",
         image: desertRatImage
     },
     {
+        squareCatalogId: "wbcc-dark-roast",
         name: "WBCC Dark Roast",
         price: "$15.00",
         image: warriorsCoffeeImage
     },
     {
+        squareCatalogId: "wbcc-first-light",
         name: "First Light",
         price: "$15.00",
         image: firstLightImage
@@ -28,6 +34,8 @@ const products = [
 ];
 
 function TopSellers({addToCart}) {
+    const { inventory, loading } = useInventory();
+
     return (
         <section className="relative py-24 bg-brandDark" id="shop">
             <div className="max-w-7xl mx-auto px-4">
@@ -60,8 +68,14 @@ function TopSellers({addToCart}) {
                             <h3 className="font-heading text-lg tracking-widest mb-1">
                                 {product.name}
                             </h3>
-
-                            <p className="text-brandGold font-bold mb-4">{product.price}</p>
+                                     {/* Price + Stock */}
+                            <div className="flex items-center gap-3 mb-4 flex-wrap justify-center">
+                                <p className="text-brandGold font-bold">{product.price}</p>
+                                <StockBadge
+                                    stock={inventory[product.squareCatalogId]}
+                                    loading={loading}
+                                />
+                            </div>
 
                             <button
                                     onClick={() => addToCart(product)}

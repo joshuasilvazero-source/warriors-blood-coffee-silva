@@ -1,6 +1,9 @@
 import QuantityStepper from "../components/QuantityStepper";
+import StockBadge from "../components/StockBadge";
+import { useInventory } from "../hooks/useInventory";
 
 export default function Checkout({ cartItems, addToCart, removeFromCart, removeAllOfItem }) {
+  const { inventory, loading } = useInventory();
   const subtotal = cartItems.reduce((total, item) => {
     return total + Number(item.price.replace("$", "")) * item.quantity;
   }, 0);
@@ -87,9 +90,15 @@ export default function Checkout({ cartItems, addToCart, removeFromCart, removeA
                               {item.name}
                             </h3>
 
-                            <p className="text-brandGold font-bold mt-1">
-                              {item.price}
-                            </p>
+                            <div className="flex items-center gap-3 mt-1 flex-wrap">
+                              <p className="text-brandGold font-bold">
+                                {item.price}
+                              </p>
+                              <StockBadge
+                                stock={inventory[item.squareCatalogId]}
+                                loading={loading}
+                              />
+                            </div>
 
                             <button
                               onClick={() => removeAllOfItem(item.name)}
