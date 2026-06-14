@@ -58,9 +58,13 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
               About Us
             </Link>
 
-            <a className="hover:text-brandGold transition-colors" href="#contact">
+            <Link
+              className="hover:text-brandGold transition-colors"
+              to="/contact"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               Contact Us
-            </a>
+            </Link>
           </nav>
 
           {/* Cart */}
@@ -125,7 +129,7 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
                     </h4>
 
                     <p className="text-sm text-gray-400 max-w-xs mx-auto mb-7">
-                      Looks like you haven’t added any coffee yet.
+                      Looks like you haven't added any coffee yet.
                     </p>
 
                     <Link
@@ -257,13 +261,14 @@ function Navbar({ cartItems, addToCart, removeFromCart }) {
               About Us
             </Link>
 
-            <a
+            <Link
+              to="/contact"
               onClick={() => setMenuOpen(false)}
               className="hover:text-brandGold transition-colors"
-              href="#contact"
+              
             >
               Contact Us
-            </a>
+            </Link>
 
             <button
               onClick={() => setCartOpen(!cartOpen)}

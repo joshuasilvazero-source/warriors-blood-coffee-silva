@@ -1,5 +1,6 @@
 import missionBg from "../assets/images/mission-bg.jpg";
 import logoImg from "../assets/images/warrior-blood-logo-done.png";
+import { Link } from "react-router-dom";
 
 export default function Mission() {
     return (
@@ -85,8 +86,8 @@ export default function Mission() {
                             </a>
 
                             {/* Contact Us */}
-                            <a
-                                href="#contact"
+                            <Link
+                                to="/contact"
                                 className="
         group
             relative
@@ -130,7 +131,7 @@ export default function Mission() {
                                 <span className="relative z-10 group-hover:text-black transition-colors duration-300">
                                     Contact Us
                                 </span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
 

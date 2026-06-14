@@ -13,6 +13,7 @@ import ScrollToTop from "./components/ScrollToTop";
 
 import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
+import Contact from "./pages/Contact";
 import About from "./pages/About";
 
 function App() {
@@ -65,31 +66,41 @@ function App() {
             <ScrollToTop />
             <Navbar cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
 
-            <Routes>
-                {/* Homepage */}
-                <Route
-                    path="/"
-                    element={
-                        <main>
-                            <Hero />
-                            <TopSellers addToCart={addToCart} />
-                            <Mission />
-                        </main>
-                    }
-                />
+            <div 
+                className="relative"
+                style={{
+                    backgroundImage: 'url(/images/coffee-background.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundAttachment: 'fixed'
+                }}
+            >
+                <div className="relative z-10">
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <main>
+                                    <Hero />
+                                    <TopSellers addToCart={addToCart} />
+                                    <Mission />
+                                </main>
+                            }
+                        />
 
-                {/* Products Page */}
-                <Route path="/products" element={<Products addToCart={addToCart} />} />
+                    <Route path="/products" element={<Products addToCart={addToCart} />} />
 
-                {/* About Page */}
-                <Route path="/about" element={<About />} />
+                    <Route path="/about" element={<About />} />
 
-                {/* Checkout Page */}
-                <Route
-                    path="/checkout"
-                    element={<Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} removeAllOfItem={removeAllOfItem} />}
-                />
-            </Routes>
+                    <Route
+                        path="/checkout"
+                        element={<Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} removeAllOfItem={removeAllOfItem} />}
+                    />
+
+                    <Route path="/contact" element={<Contact />} />
+                </Routes>
+            </div>
+            </div>
 
             <Footer />
             <CartToast productName={cartToast.name} visible={cartToast.visible} />
