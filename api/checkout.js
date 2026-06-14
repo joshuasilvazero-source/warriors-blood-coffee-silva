@@ -42,6 +42,7 @@ export default async function handler(req, res) {
           },
           checkout_options: {
             redirect_url: `${origin}/payment-success`,
+            ask_for_shipping_address: true,
           },
         }),
       }
