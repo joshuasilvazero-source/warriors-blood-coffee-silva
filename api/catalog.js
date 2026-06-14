@@ -19,43 +19,46 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "Square credentials not configured" });
   }
 
-  const response = await fetch(
-    "https://connect.squareup.com/v2/inventory/counts/batch-retrieve",
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Square-Version": "2024-01-18",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        catalog_object_ids: VARIATION_IDS,
-        location_ids: [locationId],
-      }),
+  try {
+    const response = await fetch(
+      "https://connect.squareup.com/v2/inventory/counts/batch-retrieve",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Square-Version": "2024-01-18",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          catalog_object_ids: VARIATION_IDS,
+          location_ids: [locationId],
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      return res.status(502).json({ error: "Square API error" });
     }
-  );
 
-  const data = await response.json();
+    const data = await response.json();
 
-  if (!response.ok) {
-    return res.status(502).json({ error: "Square API error" });
-  }
-
-  // Sum IN_STOCK quantities per variation (Square may return multiple entries)
-  const stockMap = {};
-  for (const count of data.counts || []) {
-    if (count.state === "IN_STOCK") {
-      stockMap[count.catalog_object_id] =
-        (stockMap[count.catalog_object_id] || 0) + parseFloat(count.quantity || "0");
+    const stockMap = {};
+    for (const count of data.counts || []) {
+      if (count.state === "IN_STOCK") {
+        stockMap[count.catalog_object_id] =
+          (stockMap[count.catalog_object_id] || 0) + parseFloat(count.quantity || "0");
+      }
     }
+
+    const availability = VARIATION_IDS.map((id) => ({
+      variationId: id,
+      quantity: stockMap[id] || 0,
+      inStock: (stockMap[id] || 0) > 0,
+    }));
+
+    res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=30");
+    return res.status(200).json({ availability });
+  } catch {
+    return res.status(502).json({ error: "Failed to reach Square API" });
   }
-
-  const availability = VARIATION_IDS.map((id) => ({
-    variationId: id,
-    quantity: stockMap[id] || 0,
-    inStock: (stockMap[id] || 0) > 0,
-  }));
-
-  res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=30");
-  return res.status(200).json({ availability });
 }
