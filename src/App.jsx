@@ -15,6 +15,7 @@ import Checkout from "./pages/Checkout";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
@@ -98,6 +99,7 @@ function App() {
                     />
 
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/payment-success" element={<PaymentSuccess />} />
                 </Routes>
             </div>
             </div>
