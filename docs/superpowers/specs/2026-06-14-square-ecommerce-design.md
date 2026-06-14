@@ -66,9 +66,35 @@ No changes to existing cart logic. Cart is React state in `App.jsx`. Sold-out pr
 
 ---
 
+## Product Card Design (Updated)
+
+Cards on `/products` are made shorter with a tighter image area. The bottom of each card is restructured:
+
+```
+[product image — reduced height]
+─────────────────────────────
+  Roast label (small caps, gold/60, left-aligned)
+  Product name (heading font, uppercase)
+
+  12oz                         ← new: small caps, gray-400, centered
+  $15.00                       ← price, brandGold bold, centered
+  IN STOCK  /  SOLD OUT        ← availability, centered, below price
+  
+  [Description button]
+  [Add to Cart / Sold Out button]
+```
+
+**Availability display (centered, beneath price):**
+- In Stock: small gold dot + `IN STOCK` in `text-[10px] tracking-[0.25em] text-brandGold/80 uppercase`
+- Sold Out: `SOLD OUT` in `text-[10px] tracking-[0.25em] text-gray-500 uppercase` + a small "SOLD OUT" pill badge overlaid on the product image (top-right corner)
+
+**12oz label:** Displayed above the price in small caps (`text-[10px] uppercase tracking-[0.2em] text-gray-500`), centered.
+
+**Card height reduction:** Reduce image `aspect` ratio from `aspect-3/4` to `aspect-square` and tighten vertical padding.
+
 ## Sold Out UI
 
-- **Product card:** "SOLD OUT" badge overlaid on product image (top-right, gold border, dark background). "Add to Cart" button replaced with a disabled greyed-out "Sold Out" button.
+- **Product card:** "SOLD OUT" pill badge on image top-right. Availability text below price reads "SOLD OUT". "Add to Cart" button replaced with a disabled greyed-out "Sold Out" button.
 - **Product modal:** "Add to Cart" footer button disabled with "Sold Out" label.
 - **TopSellers component:** Same badge and disabled button treatment.
 - **Cart/Checkout:** Items already in cart are not removed if stock depletes — Square will handle rejection at payment time.
