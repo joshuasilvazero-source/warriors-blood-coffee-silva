@@ -28,7 +28,7 @@ function TopSellers({ addToCart }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => {
-            const { inStock } = getStock(product.variationId);
+            const { inStock, quantity } = getStock(product.variationId);
 
             return (
               <div key={product.variationId} className="group flex flex-col items-center">
@@ -52,11 +52,13 @@ function TopSellers({ addToCart }) {
                 <p className="text-brandGold font-bold mb-1">{product.price}</p>
 
                 {loading ? (
-                  <div className="h-3 w-16 bg-white/5 rounded-full mb-4 animate-pulse" />
-                ) : inStock ? (
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-brandGold/70 mb-4">● In Stock</p>
-                ) : (
+                  <div className="h-3 w-20 bg-white/5 rounded-full mb-4 animate-pulse" />
+                ) : !inStock ? (
                   <p className="text-[10px] uppercase tracking-[0.25em] text-gray-500 mb-4">Sold Out</p>
+                ) : quantity <= 5 ? (
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-amber-400 mb-4">● Only {quantity} left!</p>
+                ) : (
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-brandGold/70 mb-4">● {quantity} in stock</p>
                 )}
 
                 <button

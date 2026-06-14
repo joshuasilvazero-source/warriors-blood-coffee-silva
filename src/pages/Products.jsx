@@ -177,7 +177,7 @@ export default function Products({ addToCart }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => {
-            const { inStock } = getStock(product.variationId);
+            const { inStock, quantity } = getStock(product.variationId);
 
             return (
               <div
@@ -226,14 +226,18 @@ export default function Products({ addToCart }) {
                   <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-1">12oz</p>
                   <p className="text-brandGold font-bold text-lg mb-1">{product.price}</p>
                   {loading ? (
-                    <div className="h-3 w-16 bg-white/5 rounded-full mx-auto animate-pulse" />
-                  ) : inStock ? (
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-brandGold/70">
-                      ● In Stock
-                    </p>
-                  ) : (
+                    <div className="h-3 w-20 bg-white/5 rounded-full mx-auto animate-pulse" />
+                  ) : !inStock ? (
                     <p className="text-[10px] uppercase tracking-[0.25em] text-gray-500">
                       Sold Out
+                    </p>
+                  ) : quantity <= 5 ? (
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-amber-400">
+                      ● Only {quantity} left!
+                    </p>
+                  ) : (
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-brandGold/70">
+                      ● {quantity} in stock
                     </p>
                   )}
                 </div>
