@@ -55,10 +55,12 @@ function TopSellers({ addToCart }) {
                   <div className="h-3 w-20 bg-white/5 rounded-full mb-4 animate-pulse" />
                 ) : !inStock ? (
                   <p className="text-[10px] uppercase tracking-[0.25em] text-gray-500 mb-4">Sold Out</p>
-                ) : quantity <= 5 ? (
+                ) : quantity > 0 && quantity <= 5 ? (
                   <p className="text-[10px] uppercase tracking-[0.25em] text-amber-400 mb-4">● Only {quantity} left!</p>
-                ) : (
+                ) : quantity > 0 ? (
                   <p className="text-[10px] uppercase tracking-[0.25em] text-brandGold/70 mb-4">● {quantity} in stock</p>
+                ) : (
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-brandGold/70 mb-4">● In Stock</p>
                 )}
 
                 <button

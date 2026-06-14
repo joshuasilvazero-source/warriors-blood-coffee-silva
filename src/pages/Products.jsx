@@ -231,13 +231,17 @@ export default function Products({ addToCart }) {
                     <p className="text-[10px] uppercase tracking-[0.25em] text-gray-500">
                       Sold Out
                     </p>
-                  ) : quantity <= 5 ? (
+                  ) : quantity > 0 && quantity <= 5 ? (
                     <p className="text-[10px] uppercase tracking-[0.25em] text-amber-400">
                       ● Only {quantity} left!
                     </p>
-                  ) : (
+                  ) : quantity > 0 ? (
                     <p className="text-[10px] uppercase tracking-[0.25em] text-brandGold/70">
                       ● {quantity} in stock
+                    </p>
+                  ) : (
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-brandGold/70">
+                      ● In Stock
                     </p>
                   )}
                 </div>
