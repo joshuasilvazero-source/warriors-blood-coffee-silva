@@ -34,8 +34,8 @@ export default function Contact() {
     }
 
     return (
-        <div id="contact" className="min-h-screen bg-[#1a1410] py-12 px-4 md:py-20">
-            <div className="max-w-6xl mx-auto">
+        <div id="contact" className="min-h-screen bg-[#1a1410] flex items-center px-4 py-12">
+            <div className="max-w-6xl w-full mx-auto">
                 <div className="relative bg-gradient-to-b from-[#3b2a24]/80 to-[#241611]/80 border border-white/5 rounded-3xl p-6 md:p-12 shadow-[0_30px_90px_rgba(0,0,0,0.85)]">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                         {/* Left Intro Column */}
@@ -67,32 +67,42 @@ export default function Contact() {
                         <div>
                             <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <label className="sr-only" htmlFor="firstName">
-                                        First Name
-                                    </label>
-                                    <input
-                                        id="firstName"
-                                        name="firstName"
-                                        value={firstName}
-                                        onChange={(e) => setFirstName(e.target.value)}
-                                        type="text"
-                                        placeholder="First Name"
-                                        aria-invalid={errors.firstName ? "true" : "false"}
-                                        className="w-full bg-transparent border border-white/10 rounded-full py-3 px-4 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c5a059]/30"
-                                    />
-                                    <label className="sr-only" htmlFor="lastName">
-                                        Last Name
-                                    </label>
-                                    <input
-                                        id="lastName"
-                                        name="lastName"
-                                        value={lastName}
-                                        onChange={(e) => setLastName(e.target.value)}
-                                        type="text"
-                                        placeholder="Last Name"
-                                        aria-invalid={errors.lastName ? "true" : "false"}
-                                        className="w-full bg-transparent border border-white/10 rounded-full py-3 px-4 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c5a059]/30"
-                                    />
+                                    <div>
+                                        <label className="sr-only" htmlFor="firstName">
+                                            First Name
+                                        </label>
+                                        <input
+                                            id="firstName"
+                                            name="firstName"
+                                            value={firstName}
+                                            onChange={(e) => setFirstName(e.target.value)}
+                                            type="text"
+                                            placeholder="First Name"
+                                            aria-invalid={errors.firstName ? "true" : "false"}
+                                            className="w-full bg-transparent border border-white/10 rounded-full py-3 px-4 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c5a059]/30"
+                                        />
+                                        {errors.firstName && (
+                                            <p className="text-xs text-red-400 mt-1">{errors.firstName}</p>
+                                        )}
+                                    </div>
+                                    <div>
+                                        <label className="sr-only" htmlFor="lastName">
+                                            Last Name
+                                        </label>
+                                        <input
+                                            id="lastName"
+                                            name="lastName"
+                                            value={lastName}
+                                            onChange={(e) => setLastName(e.target.value)}
+                                            type="text"
+                                            placeholder="Last Name"
+                                            aria-invalid={errors.lastName ? "true" : "false"}
+                                            className="w-full bg-transparent border border-white/10 rounded-full py-3 px-4 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c5a059]/30"
+                                        />
+                                        {errors.lastName && (
+                                            <p className="text-xs text-red-400 mt-1">{errors.lastName}</p>
+                                        )}
+                                    </div>
                                 </div>
 
                                 <div>
@@ -121,7 +131,7 @@ export default function Contact() {
                                     <textarea
                                         id="message"
                                         name="message"
-                                        rows="6"
+                                        rows={6}
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value)}
                                         placeholder="Tell us how we can help..."
