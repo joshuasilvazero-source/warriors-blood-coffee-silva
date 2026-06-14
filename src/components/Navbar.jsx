@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import warriorsBloodLogo from "../assets/images/warrior-blood-logo-done.png";
+import QuantityStepper from "./QuantityStepper";
 
-function Navbar({ cartItems, removeFromCart }) {
+function Navbar({ cartItems, addToCart, removeFromCart }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -30,20 +31,21 @@ function Navbar({ cartItems, removeFromCart }) {
 
           <h1 className="font-heading text-base md:text-lg tracking-widest uppercase">
             Warriors <span className="text-brandRed">Blood</span>{" "}
-            <span className="hidden md:inline">Coffee Company</span>
+            Coffee<span className="hidden md:inline"> Company</span>
           </h1>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex items-center space-x-8 uppercase text-xs tracking-widest font-semibold">
-            <Link className="hover:text-brandGold transition-colors" to="/">
+            <Link className="hover:text-brandGold transition-colors" to="/" onClick={() => window.scrollTo(0, 0)}>
               Home
             </Link>
 
             <Link
               className="hover:text-brandGold transition-colors"
               to="/products"
+              onClick={() => window.scrollTo(0, 0)}
             >
               Products
             </Link>
@@ -51,13 +53,18 @@ function Navbar({ cartItems, removeFromCart }) {
             <Link
               className="hover:text-brandGold transition-colors"
               to="/about"
+              onClick={() => window.scrollTo(0, 0)}
             >
               About Us
             </Link>
 
-            <a className="hover:text-brandGold transition-colors" href="#contact">
+            <Link
+              className="hover:text-brandGold transition-colors"
+              to="/contact"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               Contact Us
-            </a>
+            </Link>
           </nav>
 
           {/* Cart */}
@@ -82,9 +89,11 @@ function Navbar({ cartItems, removeFromCart }) {
                 />
               </svg>
 
-              <span className="absolute -top-2 -right-2 bg-brandGold text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
-                {cartCount}
-              </span>
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-brandGold text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </button>
 
             {/* Desktop Cart Dropdown */}
@@ -120,7 +129,7 @@ function Navbar({ cartItems, removeFromCart }) {
                     </h4>
 
                     <p className="text-sm text-gray-400 max-w-xs mx-auto mb-7">
-                      Looks like you haven’t added any coffee yet.
+                      Looks like you haven't added any coffee yet.
                     </p>
 
                     <Link
@@ -153,19 +162,14 @@ function Navbar({ cartItems, removeFromCart }) {
                             <p className="text-brandGold text-sm font-bold mt-1">
                               {item.price}
                             </p>
-
-                            <p className="text-xs text-gray-400 mt-1">
-                              Qty: {item.quantity}
-                            </p>
                           </div>
                         </div>
 
-                        <button
-                          onClick={() => removeFromCart(item.name)}
-                          className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 text-gray-400 hover:text-brandRed hover:border-brandRed/40 hover:bg-brandRed/10 transition-all duration-300 hover:rotate-90"
-                        >
-                          ×
-                        </button>
+                        <QuantityStepper
+                          quantity={item.quantity}
+                          onIncrement={() => addToCart(item, { silent: true })}
+                          onDecrement={() => removeFromCart(item.name)}
+                        />
                       </div>
                     ))}
                   </div>
@@ -214,12 +218,19 @@ function Navbar({ cartItems, removeFromCart }) {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white text-3xl"
-        >
-          {menuOpen ? "×" : "☰"}
-        </button>
+        <div className="relative md:hidden">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-white text-3xl"
+          >
+            {menuOpen ? "×" : "☰"}
+          </button>
+          {cartCount > 0 && !menuOpen && (
+            <span className="absolute -top-2 -right-2 bg-brandGold text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center pointer-events-none">
+              {cartCount}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Mobile Dropdown */}
@@ -228,7 +239,7 @@ function Navbar({ cartItems, removeFromCart }) {
           <nav className="flex flex-col items-center text-center space-y-5 uppercase text-sm tracking-widest font-semibold">
             <Link
               to="/"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); window.scrollTo(0, 0); }}
               className="hover:text-brandGold transition-colors"
             >
               Home
@@ -236,7 +247,7 @@ function Navbar({ cartItems, removeFromCart }) {
 
             <Link
               to="/products"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); window.scrollTo(0, 0); }}
               className="hover:text-brandGold transition-colors"
             >
               Products
@@ -244,19 +255,20 @@ function Navbar({ cartItems, removeFromCart }) {
 
             <Link
               to="/about"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); window.scrollTo(0, 0); }}
               className="hover:text-brandGold transition-colors"
             >
               About Us
             </Link>
 
-            <a
+            <Link
+              to="/contact"
               onClick={() => setMenuOpen(false)}
               className="hover:text-brandGold transition-colors"
-              href="#contact"
+              
             >
               Contact Us
-            </a>
+            </Link>
 
             <button
               onClick={() => setCartOpen(!cartOpen)}
@@ -315,19 +327,14 @@ function Navbar({ cartItems, removeFromCart }) {
                           <p className="text-brandGold text-sm font-bold mt-1">
                             {item.price}
                           </p>
-
-                          <p className="text-xs text-gray-400">
-                            Qty: {item.quantity}
-                          </p>
                         </div>
                       </div>
 
-                      <button
-                        onClick={() => removeFromCart(item.name)}
-                        className="w-8 h-8 rounded-full border border-white/10 text-gray-400 hover:text-brandRed hover:border-brandRed/40"
-                      >
-                        ×
-                      </button>
+                      <QuantityStepper
+                        quantity={item.quantity}
+                        onIncrement={() => addToCart(item, { silent: true })}
+                        onDecrement={() => removeFromCart(item.name)}
+                      />
                     </div>
                   ))}
 
