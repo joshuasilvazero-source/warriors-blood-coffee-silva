@@ -6,8 +6,13 @@ export default function Checkout({ cartItems, addToCart, removeFromCart, removeA
   }, 0);
 
   return (
-    <main className="bg-[#0b0b0b] text-white min-h-screen pt-28 pb-24">
-      <section className="max-w-7xl mx-auto px-4">
+    <main className="relative min-h-screen pt-28 pb-24 bg-[#1a0e06] overflow-hidden text-white">
+      {/* Page background gradients */}
+      <div className="absolute inset-0 bg-linear-to-b from-[#3b1f0a] via-[#1f0f04] to-[#0e0804] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(197,160,89,0.09)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,rgba(139,70,20,0.06)_0%,transparent_55%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_60%,rgba(139,70,20,0.05)_0%,transparent_50%)] pointer-events-none" />
+      <section className="relative z-10 max-w-7xl mx-auto px-4">
 
         {/* Header */}
         <div className="mb-14">

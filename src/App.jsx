@@ -66,29 +66,41 @@ function App() {
             <ScrollToTop />
             <Navbar cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
 
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <main>
-                            <Hero />
-                            <TopSellers addToCart={addToCart} />
-                            <Mission />
-                        </main>
-                    }
-                />
+            <div 
+                className="relative"
+                style={{
+                    backgroundImage: 'url(/images/coffee-background.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundAttachment: 'fixed'
+                }}
+            >
+                <div className="relative z-10">
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <main>
+                                    <Hero />
+                                    <TopSellers addToCart={addToCart} />
+                                    <Mission />
+                                </main>
+                            }
+                        />
 
-                <Route path="/products" element={<Products addToCart={addToCart} />} />
+                    <Route path="/products" element={<Products addToCart={addToCart} />} />
 
-                <Route path="/about" element={<About />} />
+                    <Route path="/about" element={<About />} />
 
-                <Route
-                    path="/checkout"
-                    element={<Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} removeAllOfItem={removeAllOfItem} />}
-                />
+                    <Route
+                        path="/checkout"
+                        element={<Checkout cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} removeAllOfItem={removeAllOfItem} />}
+                    />
 
-                <Route path="/contact" element={<Contact />} />
-            </Routes>
+                    <Route path="/contact" element={<Contact />} />
+                </Routes>
+            </div>
+            </div>
 
             <Footer />
             <CartToast productName={cartToast.name} visible={cartToast.visible} />
